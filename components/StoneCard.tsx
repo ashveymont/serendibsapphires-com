@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import type { Stone } from "@/lib/stones";
 
@@ -13,11 +14,21 @@ export default function StoneCard({ stone }: StoneCardProps) {
     <motion.article
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -8 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
-      className="stone-card bg-[#141414]"
+      className="stone-card group bg-[#141414]"
     >
-      <div className="h-64 w-full" style={{ background: stone.gradient }} />
+      <div className="relative h-64 w-full overflow-hidden">
+        <Image
+          src={stone.image}
+          alt={stone.name}
+          fill
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          sizes="(max-width: 1024px) 100vw, 33vw"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(11,11,11,0.28),rgba(11,11,11,0))]" />
+      </div>
       <div className="space-y-5 p-8">
         <p className="text-[9px] font-light uppercase tracking-[0.35em] text-[#C6A56B]">
           {stone.type} · {stone.carat} CT · {stone.region.toUpperCase()}

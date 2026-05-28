@@ -11,7 +11,7 @@ export interface Stone {
   carat: number;
   origin: string;
   region: string;
-  gradient: string;
+  image: string;
   excerpt: string;
   story: string;
   legacy: string;
@@ -28,21 +28,19 @@ export interface Stone {
 
 export const stones: Stone[] = [
   {
-    slug: "princess-of-the-seas",
-    name: "The Princess Of The Seas",
-    subtitle:
-      "A rare sapphire inspired by the endless elegance of the Indian Ocean.",
+    slug: "lady-in-love",
+    name: "The Lady In Love",
+    subtitle: "She does not seek love. She radiates it.",
     type: "Blue Sapphire",
     carat: 8.4,
     origin: "Ratnapura, Sri Lanka",
     region: "Ratnapura",
-    gradient: "linear-gradient(135deg, #0F2145, #1a3a6e)",
+    image: "/IMG_5994.JPG",
     excerpt:
-      "A rare sapphire of extraordinary depth, inspired by the endless elegance of the Indian Ocean.",
+      "She arrived the way all great beauties do - without effort, without announcement, and with the quiet devastation of something that knows exactly what it is.",
     story:
-      "There are sapphires that exist as commodities. And there are sapphires that exist as declarations. The Princess Of The Seas belongs to the latter.",
-    legacy:
-      "A stone for a collector who understands that true rarity speaks quietly.",
+      "She arrived the way all great beauties do - without effort, without announcement, and with the quiet devastation of something that knows exactly what it is.\n\nThe Lady In Love is the most gorgeous thing the earth has ever surrendered.\n\nHer blue is not the blue of oceans or skies or anything so ordinary as nature. It is the blue of a woman in the fullness of her feeling - luminous, overwhelming, completely and utterly alive. A colour that does not sit still. That moves when you look at it. That reaches toward you the way love reaches - with warmth, with pull, with the terrifying beauty of something real.\n\nShe is madly, completely, unconditionally in love.\n\nWith the light that falls on her. With the eyes that find her. With the hands that will one day hold her and understand, in an instant, that they are holding something that loves them back.\n\nThere are sapphires of great power. Of great rarity. Of great technical achievement.\n\nAnd then there is her.\n\nA stone so full of feeling that gemologists reach for their instruments and find, quietly, that no instrument was built for this. That what she carries cannot be graded. Cannot be reported. Cannot be reduced to numbers on a certificate.\n\nShe can only be felt.\n\nTo acquire The Lady In Love is not a transaction. It is a surrender. A recognition that some things in this world are simply, completely, and forever beautiful - and that beauty of this magnitude deserves to be held by someone who understands the magnitude of what they are holding.\n\nShe has loved every eye that has ever found her.\n\nShe is waiting for the one that stays.",
+    legacy: "To acquire The Lady In Love is not a transaction. It is a surrender.",
     collection: "Blue Sapphire Collection",
     details: {
       colour: "Royal Blue",
@@ -69,20 +67,19 @@ export const stones: Stone[] = [
     ],
   },
   {
-    slug: "midnight-crown",
-    name: "The Midnight Crown",
-    subtitle: "Born from the deepest earth of the Ratnapura highlands.",
+    slug: "princess-of-the-blues",
+    name: "The Princess of the Blues",
+    subtitle: "She was never going to bow.",
     type: "Blue Sapphire",
     carat: 12.1,
     origin: "Ratnapura, Sri Lanka",
     region: "Ratnapura",
-    gradient: "linear-gradient(135deg, #0B0B0B, #1c1c3a)",
+    image: "/IMG_5995.JPG",
     excerpt:
-      "Born from the deepest earth of the Ratnapura highlands, carrying the quiet authority of something truly rare.",
+      "She emerged from the ancient earth of Ratnapura not quietly, not gently, but with the full authority of someone who has always known her worth.",
     story:
-      "Some stones carry authority from the moment they emerge. The Midnight Crown is one of these.",
-    legacy:
-      "A stone of exceptional size and character. For the collector who demands the very finest.",
+      "There are stones that are beautiful.\n\nAnd there are stones that are brave.\n\nThe Princess Of The Blues was never going to be anything less than both.\n\nShe emerged from the ancient earth of Ratnapura not quietly, not gently, but with the full authority of someone who has always known her worth. A blue so bold it reads as a declaration. So vivid it reads as a challenge. The colour of a young woman who has looked at every convention placed before her and chosen, deliberately, to be magnificent instead.\n\nShe is a princess in the oldest sense of the word - before the word was softened. Before it became ceremony and obligation and the careful management of perception.\n\nA princess who rides. Who decides. Who walks into rooms and changes them simply by being present.\n\nHer brilliance is not delicate. It does not ask permission. It does not dim itself for comfort or adjust its saturation for those who find it too much. It is exactly as intense as it has always been, and it will remain so long after every fashionable thing has faded.\n\nThis is a stone with courage built into its crystal structure. Pride pressed into every facet by the hands of the earth over millions of years of becoming.\n\nShe has survived extraordinary pressure to become this extraordinary.\n\nThe Princess Of The Blues is not for the timid collector. She is not for the one who wants something pretty for a shelf.\n\nShe is for the one who recognises in her something they recognise in themselves.\n\nA refusal to be anything less than what they were made to be.",
+    legacy: "She has survived extraordinary pressure to become this extraordinary.",
     collection: "Collector Stones",
     details: {
       colour: "Deep Royal Blue",
@@ -105,18 +102,17 @@ export const stones: Stone[] = [
   {
     slug: "celestial-tear",
     name: "The Celestial Tear",
-    subtitle: "Among the rarest of sapphires, defined by luminous warmth.",
+    subtitle: "The universe wept. And what fell to earth was this.",
     type: "Padparadscha",
     carat: 5.7,
     origin: "Elahera, Sri Lanka",
     region: "Elahera",
-    gradient: "linear-gradient(135deg, #3d1a1a, #6e3a2a)",
+    image: "/IMG_5996.JPG",
     excerpt:
-      "Among the rarest of sapphires - a padparadscha of exceptional clarity and extraordinary emotional resonance.",
+      "Celestia looked down at what had been made. At the impossible fact of beauty. And she wept - not from sadness, but from the pure overwhelming feeling of something too beautiful to hold inside.",
     story:
-      "A colour that hovers between sunrise and flame, discovered in one of Sri Lanka's storied gem corridors.",
-    legacy:
-      "A stone that changes every setting it enters, and every story it touches.",
+      "Before the world had words for colour, it had this colour.\n\nThe ancients called it padparadscha. The lotus at sunrise. The sky in the moment between night and day when the universe holds its breath and the light does something it will never do again - turns the whole of existence into a blush.\n\nBut we know what it really is.\n\nIt is a tear.\n\nNot a tear of grief. Not the salt of suffering or the weight of loss. This is something rarer and more sacred than that.\n\nThis is the universe weeping from happiness.\n\nCelestia - the vast, breathing, dreaming consciousness of everything that exists - looks down sometimes at what has been made. At the impossible fact of beauty. At the staggering improbability that out of darkness and pressure and deep geological time, something of this colour could emerge from the earth and find its way into human hands.\n\nAnd she weeps.\n\nNot from sadness. From the pure, overwhelming feeling of something so beautiful it cannot be held inside any being - divine or otherwise - without spilling over.\n\nThe Celestial Tear fell from that moment. Pressed by the weight of a universe feeling too much. Coloured by the exact pigment of joy at its most profound - that particular pink-orange that exists at the intersection of every warm feeling the cosmos has ever had.\n\nShe carries within her the energy of a gift. Something given, not traded. Something offered from a place of infinite abundance to a world that sometimes forgets how loved it is.\n\nTo hold The Celestial Tear is to hold proof.\n\nProof that the universe notices. That it feels. That somewhere in the mathematics of existence there is a force that looks at this world and finds it, despite everything, worthy of its most beautiful tears.\n\nShe is not a gemstone.\n\nShe is a message.\n\nAnd she has been waiting - through three thousand years of earth and river and human hands - for the one she was always meant to reach.",
+    legacy: "She is not a gemstone. She is a message.",
     collection: "Rare Acquisitions",
     details: {
       colour: "Lotus Pink-Orange",
@@ -132,103 +128,4 @@ export const stones: Stone[] = [
       { label: "Origin", value: "Elahera, Sri Lanka" },
     ],
   },
-  {
-    slug: "ocean-throne",
-    name: "The Ocean Throne",
-    subtitle: "A commanding sapphire of exceptional scale and poise.",
-    type: "Blue Sapphire",
-    carat: 18.3,
-    origin: "Ratnapura, Sri Lanka",
-    region: "Ratnapura",
-    gradient: "linear-gradient(135deg, #0a1628, #0F2145)",
-    excerpt:
-      "A monumental sapphire with the calm authority of deep ocean horizons.",
-    story:
-      "Selected for scale, saturation, and a remarkable precision of crystal.",
-    legacy:
-      "An acquisition for a collector building a once-in-a-generation archive.",
-    collection: "Collector Stones",
-    details: {
-      colour: "Royal Blue",
-      clarity: "Very Slightly Included",
-      treatment: "No Heat",
-      cut: "Cushion Brilliant",
-      certification: "GRS",
-    },
-    specs: [
-      { label: "Species", value: "Corundum" },
-      { label: "Variety", value: "Blue Sapphire" },
-      { label: "Weight", value: "18.30 Carats" },
-      { label: "Origin", value: "Ratnapura, Sri Lanka" },
-    ],
-  },
-  {
-    slug: "last-monsoon",
-    name: "The Last Monsoon",
-    subtitle: "Golden intensity shaped by Sri Lanka's ancient terrain.",
-    type: "Yellow Sapphire",
-    carat: 9.2,
-    origin: "Ratnapura, Sri Lanka",
-    region: "Ratnapura",
-    gradient: "linear-gradient(135deg, #2a2000, #5a4a00)",
-    excerpt:
-      "A vibrant yellow sapphire with exceptional fire and luminous depth.",
-    story:
-      "A singular yellow sapphire chosen for clarity, brightness, and composure.",
-    legacy: "A statement stone for collectors who seek uncommon colour.",
-    collection: "The Heirloom Series",
-    details: {
-      colour: "Rich Golden Yellow",
-      clarity: "Eye-Clean",
-      treatment: "No Heat",
-      cut: "Oval Mixed",
-      certification: "GIA",
-    },
-    specs: [
-      { label: "Species", value: "Corundum" },
-      { label: "Variety", value: "Yellow Sapphire" },
-      { label: "Weight", value: "9.20 Carats" },
-      { label: "Origin", value: "Ratnapura, Sri Lanka" },
-    ],
-  },
-  {
-    slug: "royal-accord",
-    name: "The Royal Accord",
-    subtitle: "Balanced brilliance from Okkampitiya's prized deposits.",
-    type: "Blue Sapphire",
-    carat: 6.8,
-    origin: "Okkampitiya, Sri Lanka",
-    region: "Okkampitiya",
-    gradient: "linear-gradient(135deg, #0d1f40, #162d5c)",
-    excerpt:
-      "A refined blue sapphire known for elegant proportions and vibrant colour.",
-    story:
-      "A poised gem selected for precision and remarkable saturation in natural light.",
-    legacy:
-      "A timeless blue sapphire for collectors who value proportion and purity.",
-    collection: "Engagement Pieces",
-    details: {
-      colour: "Vivid Blue",
-      clarity: "Eye-Clean",
-      treatment: "No Heat",
-      cut: "Oval Brilliant",
-      certification: "GIA",
-    },
-    specs: [
-      { label: "Species", value: "Corundum" },
-      { label: "Variety", value: "Blue Sapphire" },
-      { label: "Weight", value: "6.80 Carats" },
-      { label: "Origin", value: "Okkampitiya, Sri Lanka" },
-    ],
-  },
 ];
-
-export const collectionFilters = [
-  "All",
-  "Blue Sapphire",
-  "Padparadscha",
-  "Yellow Sapphire",
-  "Engagement",
-  "Collector Stones",
-  "Heirloom Series",
-] as const;
