@@ -22,17 +22,22 @@ export default function CustomCursor() {
     };
   }, []);
 
+  const size = active ? 40 : 8;
+  const offset = size / 2;
+
   return (
     <motion.div
       animate={{
-        x: position.x - (active ? 20 : 4),
-        y: position.y - (active ? 20 : 4),
-        width: active ? 40 : 8,
-        height: active ? 40 : 8,
+        width: size,
+        height: size,
       }}
       transition={{ duration: 0.1, ease: "linear" }}
-      className="pointer-events-none fixed left-0 top-0 z-[70] hidden rounded-full border border-[#C6A56B] bg-[#C6A56B] md:block"
-      style={{ backgroundColor: active ? "transparent" : "#C6A56B" }}
+      className="pointer-events-none fixed z-[70] hidden rounded-full border border-[#C6A56B] md:block"
+      style={{
+        left: position.x - offset,
+        top: position.y - offset,
+        backgroundColor: active ? "transparent" : "#C6A56B",
+      }}
     />
   );
 }

@@ -18,6 +18,8 @@ html {
   background-color: var(--color-black);
   color: var(--color-ivory);
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -26,6 +28,8 @@ body {
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   background: var(--color-black);
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 ::selection {
