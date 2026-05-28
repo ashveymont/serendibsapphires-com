@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     apple: "/Serendib Sapphires Logo.svg",
   },
   openGraph: {
-    title: "Serendib Sapphires — Exceptional Ceylon Sapphire House",
+    title: "The House of Serendib Sapphires",
     description:
       "An exclusive Sri Lankan sapphire house for private collectors, presenting exceptional Ceylon stones with certified provenance.",
     url: "https://serendibsapphires.com",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Serendib Sapphires — Exceptional Ceylon Sapphire House",
+    title: "The House of Serendib Sapphires",
     description:
       "An exclusive Sri Lankan sapphire house for private collectors, presenting exceptional Ceylon stones with certified provenance.",
     images: ["/Serendib Sapphires Logo.png"],
