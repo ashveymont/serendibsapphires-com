@@ -22,6 +22,35 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "Serendib Sapphires",
   description: "The definitive luxury sapphire house of Sri Lanka.",
+  metadataBase: new URL("https://serendibsapphires.com"),
+  icons: {
+    icon: "/Serendib Sapphires Logo.svg",
+    shortcut: "/Serendib Sapphires Logo.svg",
+    apple: "/Serendib Sapphires Logo.svg",
+  },
+  openGraph: {
+    title: "Serendib Sapphires — Exceptional Ceylon Sapphire House",
+    description:
+      "An exclusive Sri Lankan sapphire house for private collectors, presenting exceptional Ceylon stones with certified provenance.",
+    url: "https://serendibsapphires.com",
+    siteName: "Serendib Sapphires",
+    type: "website",
+    images: [
+      {
+        url: "/Serendib Sapphires Logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Serendib Sapphires",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Serendib Sapphires — Exceptional Ceylon Sapphire House",
+    description:
+      "An exclusive Sri Lankan sapphire house for private collectors, presenting exceptional Ceylon stones with certified provenance.",
+    images: ["/Serendib Sapphires Logo.png"],
+  },
 };
 
 export default function RootLayout({
