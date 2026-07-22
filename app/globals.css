@@ -17,7 +17,6 @@
 html {
   background-color: var(--color-black);
   color: var(--color-ivory);
-  scroll-behavior: smooth;
   overflow-x: hidden;
   max-width: 100%;
 }
