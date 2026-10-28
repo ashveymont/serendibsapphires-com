@@ -12,9 +12,9 @@ export default function Reveal({
   children: React.ReactNode;
   className?: string;
   delay?: number;
-  as?: "div" | "section";
+  as?: "div" | "section" | "li";
 }) {
-  const Component = as === "section" ? motion.section : motion.div;
+  const Component = as === "section" ? motion.section : as === "li" ? motion.li : motion.div;
   return (
     <Component
       initial={{ opacity: 0, y: 40 }}
