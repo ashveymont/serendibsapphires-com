@@ -5,6 +5,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import PageTransition from "@/components/PageTransition";
+import { JsonLd, pageMetadata } from "@/lib/seo";
+import { siteConfig } from "@/lib/site-config";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-display",
@@ -20,37 +22,32 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Serendib Sapphires",
-  description: "The definitive luxury sapphire house of Sri Lanka.",
-  metadataBase: new URL("https://serendibsapphires.com"),
+  metadataBase: new URL(siteConfig.url),
+  ...pageMetadata({
+    title: "Certified Ceylon Sapphires from Sri Lanka · Serendib",
+    description:
+      "Natural Ceylon sapphires from a licensed Sri Lankan dealer. Every stone lab-certified, treatment disclosed, insured worldwide delivery.",
+    path: "/",
+  }),
   icons: {
     icon: "/Serendib Sapphires Logo.svg",
     shortcut: "/Serendib Sapphires Logo.svg",
     apple: "/Serendib Sapphires Logo.svg",
   },
-  openGraph: {
-    title: "The House of Serendib Sapphires",
-    description:
-      "An exclusive Sri Lankan sapphire house for private collectors, presenting exceptional Ceylon stones with certified provenance.",
-    url: "https://serendibsapphires.com",
-    siteName: "Serendib Sapphires",
-    type: "website",
-    images: [
-      {
-        url: "/Serendib Sapphires Logo.png",
-        width: 1200,
-        height: 630,
-        alt: "Serendib Sapphires",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "The House of Serendib Sapphires",
-    description:
-      "An exclusive Sri Lankan sapphire house for private collectors, presenting exceptional Ceylon stones with certified provenance.",
-    images: ["/Serendib Sapphires Logo.png"],
-  },
+};
+
+// Unconfirmed facts (null in site-config) are left out rather than published as placeholders.
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  logo: `${siteConfig.url}/Serendib%20Sapphires%20Logo.png`,
+  email: siteConfig.email,
+  founder: { "@type": "Person", name: siteConfig.founder },
+  ...(siteConfig.phone && { telephone: siteConfig.phone }),
+  ...(siteConfig.address && { address: { "@type": "PostalAddress", streetAddress: siteConfig.address, addressCountry: "LK" } }),
+  ...(siteConfig.instagramUrl && { sameAs: [siteConfig.instagramUrl] }),
 };
 
 export default function RootLayout({
@@ -61,6 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cormorant.variable} ${montserrat.variable}`}>
       <body className="bg-[#0B0B0B] text-[#F5F1EA]">
+        <JsonLd data={organizationJsonLd} />
         <CustomCursor />
         <Navigation />
         <PageTransition>

@@ -5,9 +5,11 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const navLinks = [
-  { href: "/collection", label: "The Collection" },
-  { href: "/house", label: "The House" },
-  { href: "/consultation", label: "Private Consultation" },
+  { href: "/sapphires", label: "Sapphires" },
+  { href: "/sourcing", label: "Private Sourcing" },
+  { href: "/certification", label: "Certification" },
+  { href: "/about", label: "About" },
+  { href: "/journal", label: "Journal" },
 ];
 
 export default function Navigation() {
@@ -32,7 +34,7 @@ export default function Navigation() {
           Serendib Sapphires
         </Link>
 
-        <nav className="hidden items-center gap-9 lg:flex">
+        <nav className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href} className="nav-link text-[12px] tracking-[0.2em] text-[#F5F1EA]">
               {link.label}
@@ -41,7 +43,7 @@ export default function Navigation() {
         </nav>
 
         <div className="hidden lg:block">
-          <Link href="/consultation" className="btn-gold rounded-full">
+          <Link href="/inquire" className="btn-gold rounded-full">
             Inquire
           </Link>
         </div>
@@ -77,7 +79,7 @@ export default function Navigation() {
                 {link.label}
               </Link>
             ))}
-            <Link href="/consultation" className="btn-gold mt-4 rounded-full" onClick={() => setIsOpen(false)}>
+            <Link href="/inquire" className="btn-gold mt-4 rounded-full" onClick={() => setIsOpen(false)}>
               Inquire
             </Link>
           </motion.div>
