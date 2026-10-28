@@ -1,244 +1,198 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { stones } from "@/lib/stones";
+import Reveal from "@/components/Reveal";
 import StoneCard from "@/components/StoneCard";
+import { StoneGridEmpty } from "@/components/SapphireBrowser";
+import Todo, { Fact } from "@/components/Todo";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import reviews from "@/content/reviews.json";
+import { siteConfig } from "@/lib/site-config";
+import { getStones } from "@/lib/stones";
+
+// Metadata for "/" is the default in app/layout.tsx.
+//
+// Placeholders on this page:
+// - [licence no.] in the proof bar (siteConfig.licenceNumber)
+// - [Founder portrait]
+// - WhatsApp [number] on the closing buttons (siteConfig.whatsappNumber)
+// - Available Now shows a placeholder while no stones are published.
+// The "From Our Clients" section renders only once content/reviews.json has real reviews.
+
+interface Review {
+  quote: string;
+  name: string;
+  location?: string;
+}
+
+const whyColumns = [
+  {
+    title: "Closer to the mine.",
+    copy: "Buying from a licensed dealer in Sri Lanka means fewer hands between the earth and you, and a clearer record of where your stone came from.",
+  },
+  {
+    title: "Ceylon colour.",
+    copy: "Sri Lankan sapphires are known for a bright, lively blue and for the soft pink-orange padparadscha found almost nowhere else.",
+  },
+  {
+    title: "Nothing hidden.",
+    copy: "We publish the lab, the report number and any treatment for every stone, before you ever ask.",
+  },
+];
 
 export default function Home() {
+  const stones = getStones().slice(0, 6);
+  const clientReviews = reviews as Review[];
+
   return (
     <div className="bg-[#0B0B0B]">
-      <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 text-center">
+      {/* 1. Hero */}
+      <section className="relative flex min-h-[calc(100svh-6rem)] items-center justify-center overflow-hidden px-6 text-center">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#0F2145_0%,_#0B0B0B_70%)]" />
-        <div className="relative z-10 mx-auto max-w-4xl">
-          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.9 }} className="eyebrow">
-            Est. Ratnapura, Sri Lanka
-          </motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.9 }} className="font-display mt-8 text-5xl font-light leading-[1.1] text-[#F5F1EA] md:text-8xl">
-            The Epitome Of
-            <br />
-            Ceylon Sapphire Excellence
-          </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, duration: 0.9 }} className="mx-auto mt-8 max-w-xl text-sm font-light uppercase tracking-[0.15em] text-[#BFA37A]">
-            Curating rare heirloom sapphires and extraordinary jewelry pieces inspired by the legendary gemstone heritage of Sri Lanka.
-          </motion.p>
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2, duration: 0.9 }} className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link href="/collection" className="btn-gold">
-              Explore The Collection
+        <Reveal className="relative z-10 mx-auto max-w-4xl">
+          <p className="eyebrow">Serendib Sapphires · Ratnapura, Sri Lanka</p>
+          <h1 className="font-display mt-8 text-5xl font-light leading-[1.1] text-[#F5F1EA] md:text-7xl">
+            Certified Ceylon sapphires, direct from the source.
+          </h1>
+          <p className="mx-auto mt-8 max-w-2xl text-[15px] font-light leading-8 text-[#BFA37A]">
+            We are a licensed gem dealer in Sri Lanka, the island that has supplied the world&apos;s sapphires for two thousand years.
+            Every stone we offer is laboratory-certified, with its report published so you know exactly what you are buying.
+          </p>
+          <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link href="/sapphires" className="btn-gold-fill">
+              View Sapphires
             </Link>
-            <Link href="/consultation" className="text-xs uppercase tracking-[0.2em] text-[#F5F1EA] underline-offset-8 hover:underline">
-              Acquire A Serendib Sapphire
+            <Link href="/sourcing" className="btn-gold">
+              Find a Specific Stone
             </Link>
-          </motion.div>
-        </div>
-        <motion.div animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 2.5, repeat: Infinity }} className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[#C6A56B]">
-          ↓
-        </motion.div>
+          </div>
+        </Reveal>
       </section>
 
-      <section className="px-6 py-28 md:py-40 lg:px-14">
-        <div className="mx-auto grid max-w-[1280px] gap-14 lg:grid-cols-2">
-          <motion.div initial={{ opacity: 0, x: -60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }} className="space-y-8">
-            <h2 className="font-display text-5xl font-light leading-[1.05] text-[#F5F1EA] md:text-6xl">
-              The Island
-              <br />
-              The Ancient
-              <br />
-              Traders Called
-              <br />
-              Serendib.
-            </h2>
-            <p className="max-w-xl text-[15px] font-light leading-[2] text-[#A09080]">
-              For centuries, the island now known as Sri Lanka was home to some of the world&apos;s most extraordinary sapphires.
-              <br />
-              <br />
-              Treasured by royalty. Coveted by collectors. Worn by the great houses of Europe and the courts of the East.
-              <br />
-              <br />
-              Ceylon sapphires have long stood as the pinnacle of gemstone rarity - prized for their vivid royal blue, their extraordinary brilliance, and their undeniable emotional resonance.
-              <br />
-              <br />
-              Serendib Sapphires was created to honor that legacy. To curate stones of exceptional rarity. To create heirlooms that transcend generations.
-            </p>
-          </motion.div>
-          <motion.aside initial={{ opacity: 0, x: 60 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }} className="flex items-center justify-center">
-            <div className="max-w-sm space-y-6">
-              <div className="h-28 w-px bg-[#C6A56B]" />
-              <p className="font-display text-3xl italic leading-[1.6] text-[#C6A56B]">
-                &quot;A Serendib Sapphire is not purchased. It is acquired.&quot;
-              </p>
-            </div>
-          </motion.aside>
-        </div>
+      {/* 2. Proof bar */}
+      <section className="border-y border-[#2A2A2A] bg-[#0D0D0D] px-6 py-8 lg:px-14">
+        <ul className="mx-auto grid max-w-[1280px] gap-6 text-center text-[12px] font-light uppercase leading-6 tracking-[0.14em] text-[#F5F1EA] md:grid-cols-4">
+          <li>
+            Licensed by Sri Lanka&apos;s National Gem &amp; Jewellery Authority{" "}
+            <Fact value={siteConfig.licenceNumber} placeholder="[licence no.]" />
+          </li>
+          <li>Every stone laboratory-certified</li>
+          <li>Treatment always disclosed</li>
+          <li>Insured worldwide delivery</li>
+        </ul>
       </section>
 
+      {/* 3. Available sapphires */}
       <section className="px-6 py-28 lg:px-14">
         <div className="mx-auto max-w-[1280px]">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-center"
-          >
-            <p className="eyebrow">The Collection</p>
-            <h2 className="font-display mt-5 text-5xl font-light text-[#F5F1EA] md:text-7xl">Stones Of Legend</h2>
-          </motion.div>
-          <div className="mt-16 grid gap-8 lg:grid-cols-3">{stones.slice(0, 3).map((stone) => <StoneCard key={stone.slug} stone={stone} />)}</div>
-          <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.3 }} className="mt-12 text-center">
-            <Link href="/collection" className="btn-gold">
-              View The Full Collection
+          <Reveal className="text-center">
+            <h2 className="font-display text-5xl font-light text-[#F5F1EA] md:text-6xl">Available Now</h2>
+            <p className="mx-auto mt-6 max-w-xl text-sm font-light leading-7 text-[#BFA37A]">
+              Each stone is one of one, photographed as it is and certified by an independent laboratory.
+            </p>
+          </Reveal>
+          <div className="mt-16">
+            {stones.length === 0 ? (
+              <StoneGridEmpty />
+            ) : (
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {stones.map((stone) => (
+                  <StoneCard key={stone.slug} stone={stone} />
+                ))}
+              </div>
+            )}
+          </div>
+          <div className="mt-12 text-center">
+            <Link href="/sapphires" className="text-xs uppercase tracking-[0.2em] text-[#C6A56B] underline-offset-8 hover:underline">
+              View all sapphires →
             </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="bg-[#0D0D0D] px-6 py-28 lg:px-14">
-        <div className="mx-auto max-w-[1280px]">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-center"
-          >
-            <p className="eyebrow">The Ceylon Difference</p>
-            <h2 className="font-display mt-5 text-5xl font-light leading-tight text-[#F5F1EA] md:text-6xl">
-              Why The World Covets
-              <br />
-              Ceylon Sapphires
-            </h2>
-          </motion.div>
-          <div className="mt-14 grid gap-10 md:grid-cols-3">
-            {[
-              ["◇", "Extraordinary Colour", "Ceylon sapphires are renowned for a vivid, velvety royal blue found nowhere else on earth - a color that holds its depth under every light."],
-              ["✦", "Rare Natural Beauty", "Among the world's most sought-after untreated gemstones. The finest Ceylon sapphires require no enhancement - their beauty is entirely their own."],
-              ["♛", "Legendary Heritage", "Worn by monarchs. Set in royal jewelry. Documented in the great auction houses of the world. Ceylon sapphires carry a provenance that elevates everything they touch."],
-            ].map(([icon, title, copy]) => (
-              <motion.div
-                key={title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ y: -4 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
-                className="px-4 text-center md:border-r md:border-[#C6A56B]/30 last:md:border-r-0"
-              >
-                <div className="mx-auto text-3xl text-[#C6A56B]">{icon}</div>
-                <h3 className="font-display mt-5 text-3xl text-[#F5F1EA]">{title}</h3>
-                <p className="mt-4 text-sm font-light leading-8 text-[#A09080]">{copy}</p>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
 
-      <section className="grid md:grid-cols-2">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
-          className="bg-[#0B0B0B] px-6 py-24 lg:px-14"
-        >
-          <p className="eyebrow">The Philosophy</p>
-          <h2 className="font-display mt-6 text-5xl font-light leading-tight text-[#F5F1EA] md:text-7xl">
-            Built To Outlast
-            <br />
-            The Moment.
-            <br />
-            Designed To Define
-            <br />A Legacy.
-          </h2>
-          <p className="mt-8 max-w-lg text-sm font-light leading-[2] text-[#A09080]">
-            A Serendib Sapphire is not an object.
-            <br />
-            <br />
-            It is a declaration.
-            <br />
-            <br />A piece gifted at a proposal. A stone passed from mother to daughter. A jewel that carries the memory of an extraordinary moment forward through time.
-            <br />
-            <br />
-            We do not create jewelry for seasons. We create heirlooms for generations.
-          </p>
-          <Link href="/house" className="btn-gold mt-10 inline-block">
-            Discover The Philosophy
-          </Link>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
-          className="flex items-center justify-center bg-[linear-gradient(135deg,_#0F2145,_#0B0B0B)] px-6 py-24 text-center lg:px-14"
-        >
-          <motion.p
-            animate={{ opacity: [0.75, 1, 0.75] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="font-display max-w-md text-4xl italic leading-[1.5] text-[#F5F1EA]"
-          >
-            &quot;Every stone we curate is designed to be remembered.&quot;
-          </motion.p>
-        </motion.div>
-      </section>
-
-      <section className="bg-[#0D0D0D] px-6 py-24 lg:px-14">
-        <div className="mx-auto max-w-[1280px] text-center">
-          <p className="eyebrow">Our Commitment</p>
-          <h2 className="font-display mt-5 text-5xl font-light text-[#F5F1EA] md:text-6xl">Acquired With Confidence</h2>
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12 } } }}
-            className="mt-12 grid gap-8 md:grid-cols-4"
-          >
-            {[
-              ["Certified Authenticity", "Every stone arrives with independent gemological certification from internationally recognized laboratories."],
-              ["Ethically Sourced", "Responsibly mined from Sri Lanka's Ratnapura and Elahera regions, with complete transparency of origin."],
-              ["Worldwide Delivery", "Secure, insured delivery to collectors and connoisseurs across the globe."],
-              ["Private Consultation", "Every acquisition begins with a private consultation. We do not rush extraordinary decisions."],
-            ].map(([title, copy]) => (
-              <motion.div
-                key={title}
-                variants={{ hidden: { opacity: 0, y: 36 }, show: { opacity: 1, y: 0 } }}
-                transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
-                whileHover={{ y: -4 }}
-                className="border border-[#2A2A2A] bg-[#141414] p-6"
-              >
-                <h3 className="font-display text-3xl text-[#F5F1EA]">{title}</h3>
-                <p className="mt-3 text-sm leading-7 text-[#A09080]">{copy}</p>
-              </motion.div>
-            ))}
-          </motion.div>
+      {/* 4. Why buy from Sri Lanka */}
+      <section className="bg-[#0D0D0D] px-6 py-28 lg:px-14">
+        <div className="mx-auto grid max-w-[1280px] gap-10 md:grid-cols-3">
+          {whyColumns.map((column, index) => (
+            <Reveal key={column.title} delay={index * 0.08} className="px-4 text-center md:border-r md:border-[#C6A56B]/30 last:md:border-r-0">
+              <h3 className="font-display text-3xl text-[#F5F1EA]">{column.title}</h3>
+              <p className="mt-4 text-sm font-light leading-8 text-[#A09080]">{column.copy}</p>
+            </Reveal>
+          ))}
         </div>
       </section>
 
-      <motion.section
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
+      {/* 5. Find a specific stone */}
+      <Reveal as="section" className="px-6 py-28 lg:px-14">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="font-display text-4xl font-light leading-tight text-[#F5F1EA] md:text-6xl">Looking for something you don&apos;t see?</h2>
+          <p className="mx-auto mt-8 max-w-2xl text-[15px] font-light leading-8 text-[#A09080]">
+            Through our network of licensed dealers and cutters in Ratnapura, we can search for a stone to your colour, size and budget,
+            including larger and rarer sapphires, and present only those with proper certification.
+          </p>
+          <Link href="/sourcing" className="mt-10 inline-block text-xs uppercase tracking-[0.2em] text-[#C6A56B] underline-offset-8 hover:underline">
+            How private sourcing works →
+          </Link>
+        </div>
+      </Reveal>
+
+      {/* 6. Founder */}
+      <section className="bg-[linear-gradient(135deg,_#0F2145,_#0B0B0B)] px-6 py-28 lg:px-14">
+        <Reveal className="mx-auto grid max-w-[1100px] items-center gap-12 md:grid-cols-[280px_1fr]">
+          <div className="flex aspect-[4/5] w-full max-w-[280px] items-center justify-center border border-[#C6A56B]/40 bg-[#0B0B0B]/40">
+            <Todo>[Founder portrait]</Todo>
+          </div>
+          <figure>
+            <blockquote className="font-display text-3xl italic leading-[1.5] text-[#F5F1EA] md:text-4xl">
+              &ldquo;My first gift from my mother was a blue sapphire, given to me at birth. I still carry it. I started Serendib so that
+              anyone buying a sapphire can know exactly what they are getting, the way I always have.&rdquo;
+            </blockquote>
+            <figcaption className="mt-8 text-xs uppercase tracking-[0.2em] text-[#BFA37A]">
+              Ashan Veymont, Founder ·{" "}
+              <Link href="/about" className="text-[#C6A56B] underline-offset-8 hover:underline">
+                About us →
+              </Link>
+            </figcaption>
+          </figure>
+        </Reveal>
+      </section>
+
+      {/* 7. Reviews: shown only when real reviews exist */}
+      {clientReviews.length > 0 && (
+        <section className="px-6 py-28 lg:px-14">
+          <div className="mx-auto max-w-[1280px]">
+            <Reveal className="text-center">
+              <h2 className="font-display text-5xl font-light text-[#F5F1EA] md:text-6xl">From Our Clients</h2>
+            </Reveal>
+            <div className="mt-14 grid gap-8 md:grid-cols-3">
+              {clientReviews.map((review) => (
+                <Reveal key={review.name} className="border border-[#2A2A2A] bg-[#141414] p-8">
+                  <blockquote className="text-sm font-light leading-8 text-[#F5F1EA]">&ldquo;{review.quote}&rdquo;</blockquote>
+                  <p className="mt-6 text-xs uppercase tracking-[0.2em] text-[#BFA37A]">
+                    {review.name}
+                    {review.location ? ` · ${review.location}` : ""}
+                  </p>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 8. Closing call to action */}
+      <Reveal
+        as="section"
         className="bg-[radial-gradient(ellipse_at_center,_#0F2145_0%,_#0B0B0B_65%)] px-6 py-28 text-center lg:px-14"
       >
-        <p className="eyebrow">Begin Your Acquisition</p>
-        <h2 className="font-display mt-6 text-5xl font-light leading-tight text-[#F5F1EA] md:text-8xl">
-          Acquire A Piece Of
-          <br />
-          Sri Lanka&apos;s Finest Legacy.
-        </h2>
+        <h2 className="font-display text-4xl font-light leading-tight text-[#F5F1EA] md:text-6xl">Have a question about a stone?</h2>
         <p className="mx-auto mt-8 max-w-xl text-sm leading-8 text-[#BFA37A]">
-          Every extraordinary acquisition begins with a conversation. We invite you to inquire about our current collection or schedule a private consultation.
+          Message us and you&apos;ll hear back personally within 24 hours, by email, WhatsApp or video call.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Link href="/consultation" className="btn-gold-fill">
-            Schedule Private Consultation
+          <Link href="/inquire" className="btn-gold-fill">
+            Inquire
           </Link>
-          <Link href="/consultation" className="btn-gold">
-            Inquire About A Sapphire
-          </Link>
+          <WhatsAppButton />
         </div>
-      </motion.section>
+      </Reveal>
     </div>
   );
 }
