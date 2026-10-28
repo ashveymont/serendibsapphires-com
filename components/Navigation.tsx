@@ -29,20 +29,20 @@ export default function Navigation() {
         isScrolled ? "bg-[#0B0B0B]/95 border-[#2A2A2A]" : "bg-transparent border-transparent"
       }`}
     >
-      <div className="mx-auto flex h-24 w-full max-w-[1440px] items-center justify-between px-6 lg:px-14">
+      <div className="relative z-50 mx-auto flex h-24 w-full max-w-[1440px] items-center justify-between px-6 lg:px-14">
         <Link href="/" className="font-display text-sm uppercase tracking-[0.35em] text-[#F5F1EA]">
           Serendib Sapphires
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-8 xl:flex">
           {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="nav-link text-[12px] tracking-[0.2em] text-[#F5F1EA]">
+            <Link key={link.href} href={link.href} className="nav-link whitespace-nowrap text-[12px] tracking-[0.2em] text-[#F5F1EA]">
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden xl:block">
           <Link href="/inquire" className="btn-gold rounded-full">
             Inquire
           </Link>
@@ -50,7 +50,7 @@ export default function Navigation() {
 
         <button
           type="button"
-          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden"
+          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 xl:hidden"
           onClick={() => setIsOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
@@ -67,7 +67,7 @@ export default function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35 }}
-            className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 bg-[#0B0B0B] px-6 lg:hidden"
+            className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 bg-[#0B0B0B] px-6 xl:hidden"
           >
             {navLinks.map((link) => (
               <Link
